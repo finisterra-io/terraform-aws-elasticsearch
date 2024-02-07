@@ -7,4 +7,3 @@ output "id" {
   value       = aws_elasticsearch_domain.default[0].domain_id
   description = "Unique identifier for the Elasticsearch domain"
 }
-
