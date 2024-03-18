@@ -1,3 +1,5 @@
+#already defined in dynamic "log_publishing_options"
+#tfsec:ignore:aws-elastic-search-enable-domain-logging 
 resource "aws_elasticsearch_domain" "default" {
   count                 = var.enabled ? 1 : 0
   domain_name           = var.domain_name
