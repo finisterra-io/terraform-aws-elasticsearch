@@ -113,7 +113,7 @@ variable "encrypt_at_rest" {
     kms_key_alias = optional(string)
   })
   description = "Configuration block containing encryption at rest options"
-  default     = {
+  default = {
     enabled       = true
     kms_key_id    = null
     kms_key_alias = null
@@ -143,12 +143,12 @@ variable "domain_endpoint_options" {
     custom_endpoint_certificate_arn = optional(string)
   })
   description = "Configuration block containing domain endpoint options"
-  default     = {
-    enforce_https                   = true
-    tls_security_policy             = null
-    custom_endpoint_enabled         = false
-    custom_endpoint                 = null
-    custom_endpoint_certificate_arn = null}
+  default = {
+    enforce_https           = true
+    tls_security_policy     = null
+    custom_endpoint_enabled = false
+    custom_endpoint         = null
+  custom_endpoint_certificate_arn = null }
 }
 
 
