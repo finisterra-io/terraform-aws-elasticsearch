@@ -113,7 +113,11 @@ variable "encrypt_at_rest" {
     kms_key_alias = optional(string)
   })
   description = "Configuration block containing encryption at rest options"
-  default     = null
+  default     = {
+    enabled       = true
+    kms_key_id    = null
+    kms_key_alias = null
+  }
 }
 
 variable "advanced_security_options" {
@@ -139,7 +143,12 @@ variable "domain_endpoint_options" {
     custom_endpoint_certificate_arn = optional(string)
   })
   description = "Configuration block containing domain endpoint options"
-  default     = null
+  default     = {
+    enforce_https                   = true
+    tls_security_policy             = null
+    custom_endpoint_enabled         = false
+    custom_endpoint                 = null
+    custom_endpoint_certificate_arn = null}
 }
 
 
@@ -197,7 +206,7 @@ variable "auto_tune_options" {
 
 variable "node_to_node_encryption_enabled" {
   type        = bool
-  default     = false
+  default     = true
   description = "Whether to enable node-to-node encryption"
 }
 
