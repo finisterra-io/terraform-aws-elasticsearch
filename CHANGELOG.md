@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file.
 
+### [1.0.1](https://github.com/finisterra-io/terraform-aws-elasticsearch/compare/v1.0.0...v1.0.1) (2024-03-18)
+
+
+### Bug Fixes
+
+* add tfsec ([788d2b0](https://github.com/finisterra-io/terraform-aws-elasticsearch/commit/788d2b0758a2b6d10971e5f3146c5fe31bd6f0fc))
+
 ## 1.0.0 (2024-02-07)
 
 
