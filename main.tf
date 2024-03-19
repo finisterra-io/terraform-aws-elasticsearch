@@ -1,4 +1,4 @@
-#already defined in dynamic "domain_endpoint_options", dynamic "log_publishing_options", dynamic "encrypt_at_rest"
+#already defined in dynamic "domain_endpoint_options", dynamic "log_publishing_options", dynamic "encrypt_at_rest" 
 #trivy:ignore:avd-aws-0046 trivy:ignore:avd-aws-0042 trivy:ignore:avd-aws-0048 trivy:ignore:avd-aws-0126
 resource "aws_elasticsearch_domain" "default" {
   count                 = var.enabled ? 1 : 0
