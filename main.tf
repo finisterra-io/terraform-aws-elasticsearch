@@ -1,5 +1,5 @@
-#already defined in dynamic "log_publishing_options"
-#tfsec:ignore:aws-elastic-search-enable-domain-logging 
+#already defined in dynamic "domain_endpoint_options", dynamic "log_publishing_options", dynamic "encrypt_at_rest" 
+#trivy:ignore:avd-aws-0046 trivy:ignore:avd-aws-0042 trivy:ignore:avd-aws-0048 trivy:ignore:avd-aws-0126
 resource "aws_elasticsearch_domain" "default" {
   count                 = var.enabled ? 1 : 0
   domain_name           = var.domain_name
@@ -48,8 +48,8 @@ resource "aws_elasticsearch_domain" "default" {
   dynamic "domain_endpoint_options" {
     for_each = var.domain_endpoint_options != null ? [var.domain_endpoint_options] : []
     content {
-      enforce_https                   = domain_endpoint_options.value.enforce_https
-      tls_security_policy             = try(domain_endpoint_options.value.tls_security_policy, null)
+      enforce_https                   = try(domain_endpoint_options.value.enforce_https, true)
+      tls_security_policy             = try(domain_endpoint_options.value.tls_security_policy, "Policy-Min-TLS-1-2-2019-07")
       custom_endpoint_enabled         = domain_endpoint_options.value.custom_endpoint_enabled
       custom_endpoint                 = try(domain_endpoint_options.value.custom_endpoint, null)
       custom_endpoint_certificate_arn = try(domain_endpoint_options.value.custom_endpoint_certificate_arn, null)
