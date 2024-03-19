@@ -143,7 +143,7 @@ variable "domain_endpoint_options" {
     custom_endpoint_certificate_arn = optional(string)
   })
   description = "Configuration block containing domain endpoint options"
-  default = null
+  default     = null
 }
 
 
